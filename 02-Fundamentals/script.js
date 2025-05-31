@@ -146,3 +146,52 @@ console.log(friends[friends.length - 2]); // friends[3 - 2] = friends[1] it get 
 // To change or mutate or update the exact values inside of arrays
 friends[1] = "Domangcag"; // Salih change into Domangcag
 console.log(friends);
+
+// Basic Array operations (Methods)
+const friendsArray = ["Ali", "Salih", "Lili"];
+
+// ADD methods
+// .push() add value inside of array last value
+friendsArray.push("Jay");
+console.log(friendsArray);
+
+// .unshift add value inside of array first value
+friendsArray.unshift("John");
+console.log(friendsArray);
+// ADD methods
+
+// REMOVE methods
+// .pop() remove value inside of array last value
+friendsArray.pop(); // remove the last value inside of array
+console.log(friendsArray);
+
+// .shift() remove value inside of array first value
+friendsArray.shift();
+console.log(friendsArray);
+// REMOVE methods
+
+// .indexOf() it tells you where the values exact index inside of array
+const whereIndex = friendsArray.indexOf("Salih"); // Salih is in
+console.log(whereIndex);
+
+// .includes() it check if the value is included inside of array
+const isIncluded = friendsArray.includes("Ali"); // true
+const isIncluded2 = friendsArray.includes("Alesya"); // true
+console.log("Ali is " + isIncluded + ", Alesya is " + isIncluded2);
+
+friendsArray.push(24);
+console.log(friendsArray);
+console.log(friendsArray.includes("24")); // gives fales its a string
+console.log(friendsArray.includes(24)); // true since its a number or integer
+
+if (friendsArray.includes("Lili")) {
+  console.log("Lili exist");
+} else {
+  console.log("Doesn't exist");
+}
+
+// Practice
+
+const data = new Array(125, 555, 44);
+
+const calcTip = () => {};
