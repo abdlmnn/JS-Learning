@@ -192,6 +192,73 @@ if (friendsArray.includes("Lili")) {
 
 // Practice
 
-const data = new Array(125, 555, 44);
+// const data = new Array(125, 555, 44);
+const data = [125, 555, 44];
 
-const calcTip = () => {};
+// function that calculate the tip
+const calcTip = (data) => {
+  return data <= 300 && data >= 50 ? data * 0.15 : data * 0.2;
+};
+// if we console.log our calcTip it return NaN which not a number
+console.log(calcTip(data)); // NaN
+
+// we get the exact indexes in calcTip so we can use them to calcTotal
+// all the data of calcTip inside of another array called tip that had specific indexes
+const tip = [calcTip(data[0]), calcTip(data[1]), calcTip(data[2])];
+
+// function calculate the total and return an array
+const calcTotal = (data) => {
+  return [data[0] + tip[0], data[1] + tip[1], data[2] + tip[2]];
+};
+
+console.log("Data:", data);
+console.log("CalcTip:", tip);
+console.log("CalcTotal:", calcTotal(data));
+
+// Objects defines key and value pairs
+
+const salih = {
+  firstname: "Salih",
+  lastname: "Abdulmanan",
+  age: 2025 - 2003,
+  sports: ["Basketball", "Football", "Volleyball"],
+  exes: {
+    nadine: {
+      age: "17",
+      personality: ["kind", "lovable", "respectful"],
+    },
+  },
+};
+console.log(salih);
+
+// Dot vs Bracket notation
+
+// if you want to display the firstname and lastname
+console.log("Fullname:", salih.firstname, salih.lastname);
+
+// if you have array inside of your object and try to display it
+console.log("My sports:", salih.sports[0]);
+
+// if you have another object inside of your object and try to display it
+console.log("Another object inside of Salih object:", salih.exes.nadine.age);
+console.log(
+  "Another object but has array inside of Salih object:",
+  salih.exes.nadine.personality[2]
+);
+
+// Practice
+const input = prompt(
+  "What do you want to know about Salih? Choose between firstname, lastname, age, sports, and exes"
+);
+
+const display = (input) => {
+  if (input === "firstname") {
+    console.log("This is the firstname of", salih.firstname);
+  } else if (input === "") {
+    console.log("Please fill up!");
+  } else {
+    console.log("Invalid choices, please try again!");
+  }
+};
+console.log(input);
+display(input);
