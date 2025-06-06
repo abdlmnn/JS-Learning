@@ -224,7 +224,7 @@ const salih = {
   sports: ["Basketball", "Football", "Volleyball"],
   exes: {
     nadine: {
-      age: "17",
+      age: "18",
       personality: ["kind", "lovable", "respectful"],
     },
   },
@@ -233,6 +233,7 @@ console.log(salih);
 
 // Dot vs Bracket notation
 
+// Dot
 // if you want to display the firstname and lastname
 console.log("Fullname:", salih.firstname, salih.lastname);
 
@@ -245,20 +246,175 @@ console.log(
   "Another object but has array inside of Salih object:",
   salih.exes.nadine.personality[2]
 );
+// Dot
+
+// Bracket notation
+const input = NaN; // comment this and uncomment the next
+// const input = prompt(
+//   "What do you want to know about Salih? Choose between firstname, lastname, age, sports, and exes"
+// );
+
+if (salih[input]) {
+  console.log(salih[input]);
+} else {
+  console.log(`${input} is invalid, please try again!`);
+}
+// Bracket notation
+
+// Adding a new property inside of our object
+salih.location = "Philippines";
+salih["instagram"] = "@abdlmnn";
+console.log(salih);
 
 // Practice
-const input = prompt(
-  "What do you want to know about Salih? Choose between firstname, lastname, age, sports, and exes"
-);
 
-const display = (input) => {
-  if (input === "firstname") {
-    console.log("This is the firstname of", salih.firstname);
-  } else if (input === "") {
-    console.log("Please fill up!");
-  } else {
-    console.log("Invalid choices, please try again!");
-  }
+// Salih has 3 sports, and favourite one is Basketball
+const prac1 = `${salih.firstname} has ${salih.sports.length} sports, and favourite one is ${salih.sports[0]}`;
+console.log(prac1);
+
+// Objects (Methods)
+const myInfo = {
+  id: "C22-0280",
+  firstname: "Salih",
+  lastname: "Abdulmanan",
+  birthYear: 2003,
+  course: "BSIT",
+  yearLevel: 4,
+  sports: ["Basketball", "Football", "Volleyball"],
+  hasDriverLicense: true,
+
+  // You can put functions in object, this is method
+  // calAge: function () {
+  //   return 2025 - this.birthYear;
+  // },
+
+  calAge: function () {
+    this.age = 2025 - this.birthYear;
+    return this.age;
+  },
+
+  getSummary: function () {
+    this.summary = `${
+      this.firstname
+    } is a ${this.calAge()}-years old, and he has ${
+      this.hasDriverLicense ? "a" : "no"
+    } driver's license `;
+    return this.summary;
+  },
 };
-console.log(input);
-display(input);
+console.log(myInfo);
+console.log("My age (object):", myInfo.calAge());
+
+// console.log("My age (dot):", myInfo.calAge());
+// console.log("My age (bracket):", myInfo["calAge"](myInfo.birthYear));
+
+// Practice
+// Salih is a 22-years old student, and he has a driver's license
+console.log("My summary (object):", myInfo.getSummary());
+
+// Practice
+const mark = {
+  fullname: "Mark Miller",
+  mass: 78,
+  heigt: 1.69,
+  calcBMI: function () {
+    this.bmi = this.mass / this.heigt ** 2;
+    return this.bmi;
+  },
+};
+
+const john = {
+  fullname: "John Smith",
+  mass: 92,
+  heigt: 1.95,
+  calcBMI: function () {
+    this.bmi = this.mass / this.heigt ** 2;
+    return this.bmi;
+  },
+};
+
+console.log("BMI (Mark):", mark.calcBMI());
+console.log("BMI (John):", john.calcBMI());
+
+if (mark.bmi > john.bmi) {
+  console.log(
+    `
+    ${mark.fullname} BMI ${mark.bmi} is higher 
+    than ${john.fullname} (${john.bmi}). 
+    `
+  );
+} else if (john.bmi > mark.bmi) {
+  console.log(
+    `
+    ${john.fullname} BMI ${john.bmi} is higher 
+    than ${mark.fullname} (${mark.bmi}).
+    `
+  );
+}
+
+// Iteration For loop
+
+// 1) i = 1 initial value of counter
+// 2) i <= 10 that is true unless it reach 11 <= 10 then false, it is a logical condition
+// 3) it display the i in console.log
+// 4) i++ is like i = i + 1 so its like this i = 1 + 1, increasing the counter
+// 5) i = 2
+// repeat until it reach false
+for (let i = 1; i <= 10; i++) {
+  console.log(`Lifting weights repetition ${i}`);
+}
+
+// Looping arrays. breaking and continuing
+
+const passions = ["Bball", "Skating", "Streamer", "Singing"];
+
+for (let i = 0; i < passions.length; i++) {
+  console.log(`
+    ${i}.) ${passions[i]}
+    `);
+}
+
+// Practice
+const allTypes = [
+  22,
+  "Salih",
+  true,
+  ["Male", "Single"],
+  { school: "SMC", year: 4 },
+];
+
+// empty array
+const newTypes = [];
+
+for (let data = 0; data < allTypes.length; data++) {
+  console.log(`
+
+    ${data}.) ${allTypes[data]} = ${typeof allTypes[data]}
+    
+    `);
+
+  // Filling allTypes array
+  // allTypes[data] = typeof allTypes[data];
+
+  // we applied push method to our empty array
+  newTypes.push(typeof allTypes[data]);
+}
+console.log(newTypes); // newTypes array =  ['number', 'string', 'boolean', 'object', 'object']
+
+const dataYears = [2000, 2001, 2002, 2003, 2004];
+
+// const calcAge4 = (data) => 2025 - data;
+
+const newDataYears = [
+  // Instead of this we do for loop
+  // calcAge4(dataYears[0]),
+  // calcAge4(dataYears[1]),
+  // calcAge4(dataYears[2]),
+  // calcAge4(dataYears[3]),
+];
+console.log(newDataYears);
+
+for (let i = 0; i < dataYears.length; i++) {
+  newDataYears.push(2025 - dataYears[i]);
+}
+console.log(newDataYears);
