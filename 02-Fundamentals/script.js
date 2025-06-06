@@ -418,3 +418,78 @@ for (let i = 0; i < dataYears.length; i++) {
   newDataYears.push(2025 - dataYears[i]);
 }
 console.log(newDataYears);
+
+// continue and break
+for (let data = 0; data < allTypes.length; data++) {
+  if (typeof allTypes[data] !== "string") continue;
+
+  console.log(`--------------Continue--------------
+    
+    ${data}.) ${allTypes[data]} = ${typeof allTypes[data]}
+    
+    `);
+}
+
+for (let data = 0; data < allTypes.length; data++) {
+  if (typeof allTypes[data] === "number") break;
+
+  console.log(`--------------Break--------------
+    
+    ${data}.) ${allTypes[data]} = ${typeof allTypes[data]}
+    
+    `);
+}
+
+// Looping backwards and Loops in Loops
+
+console.log("\n------Looping Reverse or Backwards------");
+
+// 0 1 2 3 4
+// 4 3 2 1 0 we reverse it
+
+// First
+// i = 5 - 1: i = 3 since its starting from 0 we need to minus one
+// 4 >= 0 true
+// output: 4
+// 4-- : i = 3
+
+// Second
+// i = 3
+// 3 >= 0 true
+// output: 4 3
+// 3-- : i = 2
+
+// Third
+// i = 2
+// 2 >= 0 true
+// output: 4 3 2
+// 2-- : i = 1
+
+// Fourth
+// i = 1
+// 1 >= 0 true
+// output: 4 3 2 1
+// 1-- : i = 0
+
+// Fifth
+// i = 0
+// 0 >= 0 true
+// output: 4 3 2 1 0
+
+for (let i = allTypes.length - 1; i >= 0; i--) {
+  console.log(` ${i} :`, allTypes[i]);
+}
+
+// Loops in Loops
+console.log("\n Loops in Loops");
+
+// Outer Loop
+for (let exercise = 1; exercise < 4; exercise++) {
+  console.log(`---- Exercise ${exercise} ----`);
+
+  // Inner Loop
+  for (let rep = 1; rep < 6; rep++) {
+    console.log(`Exercise ${exercise}: Lift weight repetition ${rep}`);
+  }
+  console.log("\n");
+}
