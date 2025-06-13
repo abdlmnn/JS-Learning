@@ -516,3 +516,38 @@ while (dice !== 6) {
 
   if (dice === 6) console.log("Loop is about to end...");
 }
+
+// Practice
+const billsOne = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
+const tipsOne = [];
+const totalsOne = [];
+
+const calcTipNew = (bill) => {
+  return bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
+};
+
+for (let data = 0; data < billsOne.length; data++) {
+  const tip = calcTipNew(billsOne[data]);
+  tipsOne.push(tip);
+  totalsOne.push(tip + billsOne[data]);
+}
+
+console.log("Bills: " + billsOne);
+console.log("Tips: " + tipsOne);
+console.log("Totals: " + totalsOne);
+
+const calcAverageOne = (arr) => {
+  let sum = 0;
+
+  for (let i = 0; i < arr.length; i++) {
+    sum += arr[i];
+  }
+  return sum / arr.length;
+};
+
+console.log("Average: " + calcAverageOne(totalsOne));
+
+// const arr = [1, 2, 3];
+// arr.push(4);
+// const hasZero = arr.indexOf(0) > -1;
+// console.log(hasZero);
